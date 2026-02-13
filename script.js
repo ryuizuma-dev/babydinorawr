@@ -1,25 +1,43 @@
-function showSurprise() {
-  document.getElementById("intro").classList.add("hidden");
-  document.getElementById("surprise").classList.remove("hidden");
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #6bcf6b, #3aa655);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: white;
 }
 
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove("active");
-  });
-  slides[index].classList.add("active");
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  width: 90%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
 }
 
-function nextSlide() {
-  currentSlide++;
-  if (currentSlide < slides.length) {
-    showSlide(currentSlide);
-  }
+.slide.active {
+  display: flex;
+  opacity: 1;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  showSlide(currentSlide);
-});
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff69b4;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff1493;
+  transform: scale(1.05);
+}
